@@ -39,17 +39,49 @@ return require('packer').startup(function(use)
     -- Undotree - is used for better undo history with branches
     use('mbbill/undotree')
 
+    -- Block comment and uncommenting 
+    use "terrortylor/nvim-comment"
+
+
+
+
+
+
+
+
+    -- ################################################# -- 
 
     -- cmp plugins - is used for autocompletion
-    use('hrsh7th/nvim-cmp') -- The compketion plugin
-    use('hrsh7th/cmp-buffer') -- buffer completions
-    use('hrsh7th/cmp-path') -- path completions
-    use('hrsh7th/cmp-cmdline') -- cmdline completions
-    use('saadparwaiz1/cmp_luasnip') -- snippet completions
+    use {
+        'hrsh7th/nvim-cmp',         -- for completion 
+        'hrsh7th/cmp-buffer',       -- buffer completions
+        'hrsh7th/cmp-path',         -- path completions
+        'hrsh7th/cmp-cmdline',      -- cmdline completions
+        'saadparwaiz1/cmp_luasnip', -- snippet completions
+        'hrsh7th/cmp-nvim-lsp'      -- LSP completions for nvim cmp
+    }
 
-    -- snippets - the snippets that the autocompletion needs
-    use('L3MON4D3/LuaSnip') -- snippet engine
-    use('rafamadriz/friendly-snippets') -- Many snippets for many languages
+    -- snippets - the snippets that the autocompletion(cmp) needs
+    use {
+        'L3MON4D3/LuaSnip',             -- snippet engine
+        'rafamadriz/friendly-snippets'  -- Many snippets for many languages
+    }
+
+    -- LSP
+    use {
+        'neovim/nvim-lspconfig',            -- default LSP nvim setup
+        'williamboman/mason.nvim',          -- simple to use language server installer
+        'williamboman/mason-lspconfig.nvim' -- closes some gaps between the two above
+    }
+
+
+
+
+
+
+
+    -- ################################################### --
+
 
  --   use ({
      --   "hrsh7th/nvim-cmp",
@@ -60,7 +92,7 @@ return require('packer').startup(function(use)
            -- "hrsh7th/cmp-path",
          --   "hrsh7th/cmp-nvim-lua",
        --     "L3MON4D3/LuaSnip", -- may very based on config
-      --      "onsails/lspkind-nvim",
+
     --    }
   --  })
 

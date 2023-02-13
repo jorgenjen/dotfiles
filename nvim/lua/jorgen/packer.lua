@@ -40,7 +40,23 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
 
     -- Block comment and uncommenting 
-    use "terrortylor/nvim-comment"
+    use('terrortylor/nvim-comment')
+
+   
+    -- Github copilot the default less efficient implementation for neovim
+    use('github/copilot.vim')
+
+
+    -- ## TODO ## get copilot to work with lua nad use cmd to get it's suggestions in there
+    -- Copilot that using lua for efficiency and easy plugin integration
+    -- use {
+    --     "zbirenbaum/copilot.lua",
+    --     cmd = "Copilot",
+    --     event = "InsertEnter",
+    --     config = function()
+    --         require("copilot").setup({})
+    --     end,
+    -- }
 
 
 
@@ -48,39 +64,39 @@ return require('packer').startup(function(use)
 
 
 
-
+    -- uncomment and fix copilot and cmp with LSP when you have time
     -- ################################################# -- 
 
-    -- cmp plugins - is used for autocompletion
-    use {
-        'hrsh7th/nvim-cmp',         -- for completion 
-        'hrsh7th/cmp-buffer',       -- buffer completions
-        'hrsh7th/cmp-path',         -- path completions
-        'hrsh7th/cmp-cmdline',      -- cmdline completions
-        'saadparwaiz1/cmp_luasnip', -- snippet completions
-        'hrsh7th/cmp-nvim-lsp'      -- LSP completions for nvim cmp
-    }
-
-    -- snippets - the snippets that the autocompletion(cmp) needs
-    use {
-        'L3MON4D3/LuaSnip',             -- snippet engine
-        'rafamadriz/friendly-snippets'  -- Many snippets for many languages
-    }
-
-    -- LSP
-    use {
-        'neovim/nvim-lspconfig',            -- default LSP nvim setup
-        'williamboman/mason.nvim',          -- simple to use language server installer
-        'williamboman/mason-lspconfig.nvim' -- closes some gaps between the two above
-    }
-
-
-
-
-
-
+    -- -- cmp plugins - is used for autocompletion
+    -- use {
+    --     'hrsh7th/nvim-cmp',         -- for completion 
+    --     'hrsh7th/cmp-buffer',       -- buffer completions
+    --     'hrsh7th/cmp-path',         -- path completions
+    --     'hrsh7th/cmp-cmdline',      -- cmdline completions
+    --     'saadparwaiz1/cmp_luasnip', -- snippet completions
+    --     'hrsh7th/cmp-nvim-lsp'      -- LSP completions for nvim cmp
+    -- }
+    --
+    -- -- snippets - the snippets that the autocompletion(cmp) needs
+    -- use {
+    --     'L3MON4D3/LuaSnip',             -- snippet engine
+    --     'rafamadriz/friendly-snippets'  -- Many snippets for many languages
+    -- }
+    --
+    -- -- LSP
+    -- use {
+    --     'neovim/nvim-lspconfig',            -- default LSP nvim setup
+    --     'williamboman/mason.nvim',          -- simple to use language server installer
+    --     'williamboman/mason-lspconfig.nvim' -- closes some gaps between the two above
+    -- }
 
     -- ################################################### --
+
+
+
+
+
+
 
 
  --   use ({

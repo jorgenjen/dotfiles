@@ -14,3 +14,6 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
+-- turn off auto comment when going newline in insert mode
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")

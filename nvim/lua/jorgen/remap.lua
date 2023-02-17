@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex) -- can be used to quit the current buffer
+vim.keymap.set("n", "<leader>ee", vim.cmd.Ex) -- can be used to quit the current buffer
 vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', {noremap = true}) -- Control backspace - Deletes previous word as expected
 
 -- moves all selected lines up or down in visual mode on shift + j/k
@@ -19,7 +19,20 @@ vim.keymap.set("n", "N", "Nzzzv") -- Search backward and center cursor
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- copy to system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y") -- copy line to system clipboard
+vim.keymap.set("n", "<leader>y", "\"+Y") -- copy line to system clipboard
 vim.keymap.set("v", "<leader>y", "\"+y") -- copy visual selection to system clipboard
-vim.keymap.set("n", "<leader>Y", "\"+Y") 
+-- vim.keymap.set("n", "<leader>Y", "\"+y") -- Don't see the point of this one
+
+vim.keymap.set("n", "<leader>d", "\"_dd") -- delete line and don't write to register
+vim.keymap.set("v", "<leader>d", "\"_dd") -- delete visual selection and don't write to register
+
+vim.keymap.set("n", "<C-p>", "\"+P") -- paste from system clipboard
+vim.keymap.set("v", "<C-p>", "<leader>d\"+Pa<CR>") -- paste from system clipboard
+
+
+-- replace the word under the cursor with the word you type for all those instances in the file
+vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+
+
+
 

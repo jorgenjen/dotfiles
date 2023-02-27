@@ -50,6 +50,10 @@ return require('packer').startup(function(use)
     use('terrortylor/nvim-comment')
 
    
+    -- nvim-cursorline - is used for word underline and line highlight
+    use('yamatsum/nvim-cursorline')
+
+
     -- Github copilot the default less efficient implementation for neovim
     use('github/copilot.vim')
 

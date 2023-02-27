@@ -25,13 +25,20 @@ return require('packer').startup(function(use)
         end
     })
 
-    -- Treesitter - is used for better and faster syntax highlighting
+    -- Telescope - is used for fuzzy finding files and searching for content in files in project 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+
+    -- Treesitter - is used for better and faster syntax highlighting
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+
+    -- nvim-ts-rainbow - is used for color matching parentheses
+        -- Is archived so could stop working in the future if you get errors stop using this one
+    use('p00f/nvim-ts-rainbow')
+
 
     -- Harpoon - is used for quick navigation between files
     use('ThePrimeagen/harpoon')
@@ -45,6 +52,7 @@ return require('packer').startup(function(use)
    
     -- Github copilot the default less efficient implementation for neovim
     use('github/copilot.vim')
+
 
 
     -- ## TODO ## get copilot to work with lua nad use cmd to get it's suggestions in there
@@ -93,6 +101,7 @@ return require('packer').startup(function(use)
     -- ################################################### --
 
 
+    
 
 
 

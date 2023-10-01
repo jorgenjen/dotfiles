@@ -19,15 +19,16 @@ vim.keymap.set("n", "N", "Nzzzv") -- Search backward and center cursor
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- copy to system clipboard
-vim.keymap.set("n", "<leader>y", "\"+Y") -- copy line to system clipboard
-vim.keymap.set("v", "<leader>y", "\"+y") -- copy visual selection to system clipboard
+vim.keymap.set("n", "<leader>y", '"+Y', {noremap=true}) -- copy line to system clipboard
+vim.keymap.set("v", "<leader>y", '"+y', {noremap=true}) -- copy visual selection to system clipboard
 -- vim.keymap.set("n", "<leader>Y", "\"+y") -- Don't see the point of this one
 
-vim.keymap.set("n", "<leader>d", "\"_dd") -- delete line and don't write to register
-vim.keymap.set("v", "<leader>d", "\"_dd") -- delete visual selection and don't write to register
 
-vim.keymap.set("n", "<C-p>", "\"+P") -- paste from system clipboard
-vim.keymap.set("v", "<C-p>", "<leader>d\"+Pa<CR>") -- paste from system clipboard
+vim.keymap.set("n", "<leader>d", '"_dd', {noremap=true}) -- delete line and don't write to register
+vim.keymap.set("v", "<leader>d", '"_dd', {noremap=true}) -- delete visual selection and don't write to register
+
+vim.keymap.set("n", "<C-p>", '"+P', {noremap=true}) -- paste from system clipboard
+vim.keymap.set("v", "<C-p>", '<leader>d"+Pa<CR>', {noremap=true}) -- paste from system clipboard
 
 
 -- replace the word under the cursor with the word you type for all those instances in the file
@@ -42,3 +43,6 @@ vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
 -- comment out lines
 vim.keymap.set("n", "<leader>l", ":CommentToggle<CR>")
 vim.keymap.set("v", "<leader>l", ":CommentToggle<CR>")
+
+
+

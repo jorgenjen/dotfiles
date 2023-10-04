@@ -33,6 +33,10 @@ vim.keymap.set("v", "<C-p>", '<leader>d"+Pa<CR>', {noremap=true}) -- paste from 
 
 -- replace the word under the cursor with the word you type for all those instances in the file
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+vim.keymap.set("v", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+
+
+
 
 
 -- Remap for saving with control + s
@@ -40,9 +44,7 @@ vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>") 
 
 
--- comment out lines
-vim.keymap.set("n", "<leader>l", ":CommentToggle<CR>")
-vim.keymap.set("v", "<leader>l", ":CommentToggle<CR>")
-
-
+-- comment out lines -- Set in plugins/nvim-plugins.lua
+--vim.keymap.set("n", "<leader>l", ":CommentToggle<CR>")
+--vim.keymap.set("v", "<leader>l", ":CommentToggle<CR>")
 

@@ -1,7 +1,7 @@
 return {
     'nvim-telescope/telescope.nvim', -- tag = '0.1.3',
     branch = "0.1.x",
-    dependencies = { 
+    dependencies = {
         'nvim-lua/plenary.nvim',
         {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'}, -- for better performance 
         'nvim-tree/nvim-web-devicons', -- for icons in telescope -- file icons
@@ -11,7 +11,7 @@ return {
         -- File search and swapping -- using builtin functions to telescope
         local builtin = require('telescope.builtin')
 
-        vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = "Fuzzy file search"}) 
+        vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = "Fuzzy file search"})
         vim.keymap.set('n', '<leader>gg', builtin.git_files, {desc = "Fuzzy file search for all tracked files in the git repo"})
         vim.keymap.set('n', '<leader>ss', builtin.live_grep, {desc = "Search for files based on content in the file"})
         vim.keymap.set('n', '<leader>fs', builtin.grep_string, {desc = "Find word under cursor in current working directory"})

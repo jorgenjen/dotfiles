@@ -11,7 +11,7 @@ return {
     -- import mason-lspconfig
     local mason_lspconfig = require("mason-lspconfig")
 
-    local mason_tool_installer = require("mason-tool-installer")
+--    local mason_tool_installer = require("mason-tool-installer")
 
     -- enable mason and configure icons
     mason.setup({
@@ -31,6 +31,11 @@ return {
 --        "biome", -- JAvascript, json, typescript
         "tsserver", -- Typesc, Javascript
         "cssls", -- css
+        "html",
+        "pyright",
+        "emmet_ls",
+        "svelte",
+        "lua_ls", -- lua language server
 
         -- does not attach to java files for some reason
 --        "jdtls", -- java

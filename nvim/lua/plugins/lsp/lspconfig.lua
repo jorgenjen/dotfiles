@@ -89,6 +89,51 @@ return {
             on_attach = on_attach,
         })
 
+        -- html
+        lspconfig["html"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+        -- Python lsp
+        lspconfig["pyright"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+        -- web dev snippets
+        lspconfig["emmet_ls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+        -- svelte
+        lspconfig["svelte"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+
+        -- configure lua server (with special settings)
+        lspconfig["lua_ls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = { -- custom settings for lua
+                Lua = {
+                    -- make the language server recognize "vim" global
+                    diagnostics = {
+                        globals = { "vim" },
+                    },
+                    workspace = {
+                        -- make language server aware of runtime files
+                        library = {
+                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                            [vim.fn.stdpath("config") .. "/lua"] = true,
+                        },
+                    },
+                },
+            },
+        })
 
 
 -- BOTH OF THESE DOES NOT ATTACH TO JAVA FILE IDK WHY

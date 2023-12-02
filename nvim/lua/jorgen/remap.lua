@@ -7,7 +7,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- Move selected lines up
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Move selected lines down
 
 -- This makes it so that when you press J it will not move the cursor towazrds the end
-vim.keymap.set("n", "J", "mzJ`z") -- Append line below to current line
+-- vim.keymap.set("n", "J", "mzJ`z") -- Append line below to current line
 
 -- Keep cursor centered when scrolling and searching
 vim.keymap.set("n", "<C-u>", "<C-u>zz") -- Scroll up half page and center cursor

@@ -77,11 +77,11 @@ return {
             on_attach = on_attach,
         })
 
-        -- Typescript and javascript
-        lspconfig["tsserver"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        -- Typescript and javascript -- deprecated and gives warnings
+        -- lspconfig["tsserver"].setup({
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        -- })
 
         -- css config
         lspconfig["cssls"].setup({

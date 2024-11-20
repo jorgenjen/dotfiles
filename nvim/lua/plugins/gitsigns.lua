@@ -39,9 +39,10 @@ return {
             row = 0,
             col = 1
         },
-        yadm = {
-            enable = false
-        },
+        -- field is now invalid for somereason
+        -- yadm = {
+        --     enable = false
+        -- },
     },
 
 

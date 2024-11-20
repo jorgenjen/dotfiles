@@ -29,7 +29,8 @@ return {
       ensure_installed = {
         "clangd", -- C
 --        "biome", -- JAvascript, json, typescript
-        "tsserver", -- Typesc, Javascript
+        -- "tsserver", -- Typesc, Javascript -- Seems to be deprecated
+        "ts_ls", -- typescript, javascript
         "cssls", -- css
         "html",
         "pyright",

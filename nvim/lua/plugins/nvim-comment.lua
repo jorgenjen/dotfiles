@@ -8,5 +8,11 @@ return {
 
         -- add commentstring for openscad
         vim.cmd("autocmd FileType openscad setlocal commentstring=//\\ %s")
+
+        -- add commentstring for cuda .cu files
+        vim.cmd("autocmd FileType cuda setlocal commentstring=//\\ %s")
+
+        -- change comment string for c
+        vim.cmd("autocmd FileType c setlocal commentstring=//\\ %s")
     end
 }

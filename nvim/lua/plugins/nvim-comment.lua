@@ -14,5 +14,8 @@ return {
 
         -- change comment string for c
         vim.cmd("autocmd FileType c setlocal commentstring=//\\ %s")
+
+        -- change comment string for c++
+        vim.cmd("autocmd FileType cpp setlocal commentstring=//\\ %s")
     end
 }

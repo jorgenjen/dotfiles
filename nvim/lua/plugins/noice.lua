@@ -61,13 +61,6 @@ return {
         },
         {
           filter = {
-            event = "cmdline",
-            find = "^:w<CR>$", -- Matches the ":w" command
-          },
-          opts = { skip = true },
-        },
-        {
-          filter = {
             event = "lsp",
             kind = "progress",
             cond = function(message)

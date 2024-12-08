@@ -4,8 +4,8 @@ return {
     config = function ()
         require("nvim_comment").setup()
         -- silent = true to avoid cmd line to pop up
-        vim.keymap.set("v", "<leader>l", ":CommentToggle<CR>", {silent = true})
-        vim.keymap.set("n", "<leader>l", "<cmd>CommentToggle<CR>", {silent = true}) -- not needed for this one as it uses <cmd>
+        vim.keymap.set("v", "<leader>l", ":CommentToggle<CR>", {silent = true, desc="Toggle commment"})
+        vim.keymap.set("n", "<leader>l", "<cmd>CommentToggle<CR>", {silent = true, desc="Toggle commment"}) -- not needed for this one as it uses <cmd>
 
         -- add commentstring for openscad
         vim.cmd("autocmd FileType openscad setlocal commentstring=//\\ %s")

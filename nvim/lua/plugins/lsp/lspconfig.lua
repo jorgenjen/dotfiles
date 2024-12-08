@@ -113,6 +113,12 @@ return {
             on_attach = on_attach,
         })
 
+        -- cmake
+        lspconfig["cmake"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
 
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({

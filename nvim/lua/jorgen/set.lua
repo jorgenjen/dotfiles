@@ -31,7 +31,7 @@ vim.opt.cursorline = true
 -- vim.opt.colorcolumn = "80"
 
 -- Sets the signcolumn to be on at all times such that it does not move when gitsigns adds symbols to it
-vim.opt.signcolumn = "yes:1" 
+vim.opt.signcolumn = "yes:2"
 
 
 -- turn off auto comment when going newline in insert mode

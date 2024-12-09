@@ -33,3 +33,13 @@ require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } }, {
 --require("lazy").setup({{import = "plugins", import = "plugins.lsp"}})
 
 
+-- Removes higlighting of linenumber of the marked line (by mark.nvim)
+vim.api.nvim_set_hl(0, "MarkSignNumHL", { link = "Comment" })
+
+-- vim.api.nvim_set_hl(0, "MarkSignHL", { link = "WarningMsg" })
+vim.api.nvim_set_hl(0, "MarkSignHL", { fg = "#C678DD" }) -- set to the pink color from onedark theme
+
+-- turn off diagnostic in signcolumn
+vim.diagnostic.config({
+  signs = false,
+})

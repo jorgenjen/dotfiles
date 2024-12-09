@@ -10,8 +10,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc="Move selected lines down"}) 
 -- vim.keymap.set("n", "J", "mzJ`z") -- Append line below to current line
 
 -- Keep cursor centered when scrolling and searching
-vim.keymap.set("n", "<C-u>", "<C-u>zz") -- Scroll up half page and center cursor
-vim.keymap.set("n", "<C-d>", "<C-d>zz") -- Scroll down half page and center cursor
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz") -- Scroll up half page and center cursor
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz") -- Scroll down half page and center cursor
 vim.keymap.set("n", "n", "nzzzv") -- Search forward and center cursor
 vim.keymap.set("n", "N", "Nzzzv") -- Search backward and center cursor
 

@@ -2,9 +2,11 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>ee", vim.cmd.Ex) -- can be used to quit the current buffer
 vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', {noremap = true}) -- Control backspace - Deletes previous word as expected
 
--- moves all selected lines up or down in visual mode on shift + j/k
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", {desc="Move selected lines up"}) -- Move selected lines up
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc="Move selected lines down"}) -- Move selected lines down
+-- moves all selected lines up or down in visual mode on shift + j/k 
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", {silent = true, desc="Move selected lines up"}) -- Move selected lines up
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {silent = true, desc="Move selected lines down"}) -- Move selected lines down
+
+
 
 -- This makes it so that when you press J it will not move the cursor towazrds the end
 -- vim.keymap.set("n", "J", "mzJ`z") -- Append line below to current line

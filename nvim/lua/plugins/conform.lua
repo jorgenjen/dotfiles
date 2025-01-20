@@ -3,17 +3,17 @@ return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
-	-- keys = {
-	-- 	{
-	-- 		-- Customize or remove this keymap to your liking
-	-- 		"<leader>f",
-	-- 		function()
-	-- 			require("conform").format({ async = true })
-	-- 		end,
-	-- 		mode = "",
-	-- 		desc = "Format buffer",
-	-- 	},
-	-- },
+	keys = {
+		{
+			-- Customize or remove this keymap to your liking
+			"<leader>cf",
+			function()
+				require("conform").format({ async = true })
+			end,
+			mode = "",
+			desc = "Format buffer",
+		},
+	},
 	-- This will provide type hinting with LuaLS
 	---@module "conform"
 	---@type conform.setupOpts
@@ -42,11 +42,5 @@ return {
 	init = function()
 		-- If you want the formatexpr, here is the place to set it
 		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-	end,
-	config = function(_, opts)
-		local conform = require("conform").setup(opts)
-		vim.keymap.set({ "n", "v" }, "<leader>cf", function()
-			conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
-		end, { desc = "Format file or range (in visual mode)" })
 	end,
 }

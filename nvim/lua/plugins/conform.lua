@@ -25,6 +25,7 @@ return {
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			cpp = { "clang-format" },
 			c = { "clang-format" },
+			cmake = { "cmakelang" },
 		},
 		-- Set default options
 		default_format_opts = {

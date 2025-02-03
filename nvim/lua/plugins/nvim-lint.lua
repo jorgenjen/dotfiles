@@ -16,7 +16,9 @@ return {
 			svelte = { "eslint_d" },
 			python = { "pylint" },
 			-- rust = { "bacon" }, -- bacon fails to instal for some reason
-			cpp = { "cpplint" }, -- would look into cppcheck aswell but not found by mason
+
+			-- turn off cpp as the linter and formatter did not agree that often which was annoying
+			-- cpp = { "cpplint" }, -- would look into cppcheck aswell but not found by mason
 			cmake = { "cmakelint" },
 			c = { "cpplint" },
 			bash = { "shellcheck" },

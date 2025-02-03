@@ -61,6 +61,7 @@ return {
 					"black", -- python
 					"prettierd", -- JS
 					"prettier", -- JS
+					"cmakelang", -- cmake
 
 					-- Linters
 					"eslint_d", -- JS

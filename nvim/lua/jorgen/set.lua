@@ -37,3 +37,19 @@ vim.opt.signcolumn = "yes:2"
 -- turn off auto comment when going newline in insert mode
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
+-- set c and c++ to use 4 spaces for tab
+local function set_c_cpp_indentation()
+	vim.bo.tabstop = 4
+	vim.bo.softtabstop = 4
+	vim.bo.shiftwidth = 4
+end
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "c", "cpp", "cuda", "cu" },
+	callback = set_c_cpp_indentation,
+})
+
+
+
+

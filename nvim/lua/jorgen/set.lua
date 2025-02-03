@@ -33,7 +33,6 @@ vim.opt.cursorline = true
 -- Sets the signcolumn to be on at all times such that it does not move when gitsigns adds symbols to it
 vim.opt.signcolumn = "yes:2"
 
-
 -- turn off auto comment when going newline in insert mode
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
@@ -50,6 +49,28 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	callback = set_c_cpp_indentation,
 })
 
+local function update_scroll()
+	local divided_lines = math.floor(vim.o.lines / 3)
+	if divided_lines > 0 then
+		vim.opt.scroll = divided_lines
+		vim.notify(
+			"Updated scroll to " .. vim.opt.scroll:get() .. " lines",
+			vim.log.levels.INFO,
+			{ title = "Scroll Update" }
+		)
+	else
+		vim.opt.scroll = 18 -- Set as default (normal value for my setup that is 1/3)
+		vim.notify(
+			"Scroll set to my default " .. vim.opt.scroll:get() .. " lines",
+			vim.log.levels.INFO,
+			{ title = "Scroll Update" }
+		)
+	end
+end
 
+vim.api.nvim_create_user_command("UpdateScroll", update_scroll, { nargs = 0 })
 
-
+-- Vimenter does not happen and resize happeens all the time so just use a function
+-- vim.api.nvim_create_autocmd({ "VimEnter", "VimResized" }, {
+-- 	callback = update_scroll,
+-- })

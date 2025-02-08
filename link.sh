@@ -52,9 +52,9 @@ loop_link() {
       if [[ -d "$HOME/.config/$CONFIG" || -L "$HOME/.config/$CONFIG" ]]; then
         echo -e "${YELLOW}WARNING:${RESET} $HOME/.config/$CONFIG directory/symlink exists..."
         echo -e "\tMove/remove/rename it if you want to set up the symlink:"
-        echo -e "\t\t${CYAN}$PWD/$CONFIG -> $HOME/.config/$CONFIG\n"
+        echo -e "\t\t${CYAN}$PWD/$CONFIG -> $HOME/.config/$CONFIG\n${RESET}"
       else
-        echo -e "Creating symlink: ${CYAN}$PWD/$CONFIG -> $HOME/.config/$CONFIG"
+        echo -e "Creating symlink: ${CYAN}$PWD/$CONFIG -> $HOME/.config/$CONFIG${RESET}"
         ln -s "$PWD/$CONFIG" "$HOME/.config/$CONFIG"
       fi
     elif $foundBaseConfig; then
@@ -63,12 +63,11 @@ loop_link() {
       for file in $fileNames
       do
         if [ -f "$HOME/.config/$file" ]; then
-          echo "$PWD/.config/$file EXISTS " 
           echo -e "${YELLOW}WARNING:${RESET} $HOME/.config/$file file/symlink exists..."
           echo -e "\tMove/remove/rename it if you want to set up the symlink:"
-          echo -e "\t\t${CYAN}$PWD/$CONFIG/$file -> $HOME/.config/$file\n"
+          echo -e "\t\t${CYAN}$PWD/$CONFIG/$file -> $HOME/.config/$file\n${RESET}"
         else
-          echo -e "\t${CYAN}Creating symlink: ${CYAN}$PWD/$CONFIG/$file -> $HOME/.config/$file"
+          echo -e "\t${CYAN}Creating symlink: ${CYAN}$PWD/$CONFIG/$file -> $HOME/.config/$file${RESET}"
           ln -s "$PWD/$CONFIG/$file" "$HOME/.config/$file"
         fi
       done
@@ -80,9 +79,9 @@ loop_link() {
         if [ -f "$HOME/$file" ]; then
           echo -e "${YELLOW}WARNING:${RESET} $HOME/$file file/symlink exists..."
           echo -e "\tMove/remove/rename it if you want to set up the symlink:"
-          echo -e "${CYAN}\t\t$PWD/$CONFIG/$file -> $HOME/$file\n"
+          echo -e "${CYAN}\t\t$PWD/$CONFIG/$file -> $HOME/$file\n${RESET}"
         else
-          echo -e "\tCreating symlink: ${CYAN}$PWD/$CONFIG/$file -> $HOME/$file"
+          echo -e "\tCreating symlink: ${CYAN}$PWD/$CONFIG/$file -> $HOME/$file${RESET}"
           ln -s "$PWD/$CONFIG/$file" "$HOME/$file"
         fi
       done
@@ -102,6 +101,7 @@ elif [[ "$#" -eq 1 && "${args[0]}" == "list" ]]; then
   for item in "${CONFIGS_DIR[@]}" "${CONFIGS_BASE_CONFIG[@]}" "${CONFIGS_BASE_HOME[@]}"; do
     echo -e "\t${BLUE}$item"
   done
+  echo -e "${RESET}" # Reset after lising in blue
 elif [[ "$#" -eq 0 ]]; then 
   echo  "You need to supply arguments: "
   echo -e "\t${GREEN}sh${RESET} link.sh all               -- Symlinkns all linkable dotfiles in repo"
@@ -112,6 +112,3 @@ else
   echo -e "Looping over given directories...\n"
   loop_link "${args[@]}"
 fi
-
-echo -e "${RESET}" # needed to not color of bash permanently (not the case for my modified zsh)
-                   # Only needed if last print is coloured

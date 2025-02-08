@@ -20,7 +20,7 @@ sh link.sh nvim wezterm
 ```
 
 
-#### Credits and implementation information
+### Credits and implementation information
 Qtile config is a modification of the old version of [Cozytile](https://github.com/Darkkal44/CozyTile) by github user Darkkal44.
 
 Hyprland is a slight modification of the amazing [dotfiles repository](https://gitlab.com/stephan-raabe/dotfiles) by Stephan Raabe.

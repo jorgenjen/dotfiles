@@ -1,0 +1,187 @@
+# Starship configuration for Prezto
+
+add_newline = false
+palette = "default"
+
+# A minimal left prompt
+format = """$directory$character"""
+
+# move the rest of the prompt to the right
+right_format = """$status$all$cmd_duration"""
+
+
+[palettes.default]
+# Not sure about the vim color I like the most...
+# vimmode    = "#8839ef"
+# vimmode    = "#fab387"
+vimmode    = "#eba0ac"
+time       = "#bac2de" # From capuuchin mocca muted color
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](green)"
+vicmd_symbol = "[](vimmode)"
+
+# [git_branch]
+# disabled = true  # Hides branch name, keeping only minimal git status
+
+[git_branch]
+# format = '[$branch]($style) '
+format = '[ $branch]($style) '
+style = 'bold green'
+
+[git_status]
+format = '$all_status$ahead_behind '
+ahead = '[⬆](bold purple) '
+behind = '[⬇](bold purple) '
+staged = '[✚](green) '
+deleted = '[✖](red) '
+renamed = ''
+# stashed = '[✭](cyan) '
+# stashed = '[](cyan) '
+stashed = ''
+untracked = '' 
+modified = '[✱](blue) '
+# conflicted = '[═](yellow) '
+conflicted = '[󰘭](red) '
+diverged = '⇕ '
+up_to_date = ''
+
+[package]
+disabled = true
+
+
+[directory]
+style = "blue"
+# These makes the other directories in pwd short besides the one you are in
+# Looks neat and takes little space
+truncation_length = 1
+truncation_symbol = ""
+fish_style_pwd_dir_length = 1
+
+[cmd_duration]
+min_time = 0                # Show duration for all commands (no threshold)
+show_milliseconds = true    # Always show milliseconds for quick commands
+format = '[$duration]($style) '
+style = 'time'
+
+# Use different format based on duration
+
+[line_break]
+disabled = true
+
+[status]
+disabled = false
+symbol = '✘ '
+
+# ICONS -- Disable them all I dont need to see language and verson at all times
+[aws]
+disabled = true
+
+[buf]
+disabled = true
+
+[c]
+disabled = true
+
+[cmake]
+disabled = true
+
+[conda]
+disabled = true
+
+[crystal]
+disabled = true
+
+[dart]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[fennel]
+disabled = true
+
+[golang]
+disabled = true
+
+[guix_shell]
+disabled = true
+
+[haskell]
+disabled = true
+
+[haxe]
+disabled = true
+
+[hostname]
+disabled = true
+
+[java]
+disabled = true
+
+[julia]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[lua]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[meson]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[pijul_channel]
+disabled = true
+
+[python]
+disabled = true
+
+[rlang]
+disabled = true
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+
+[scala]
+disabled = true
+
+[swift]
+disabled = true
+
+[zig]
+disabled = true
+
+[gradle]
+disabled = true

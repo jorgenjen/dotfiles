@@ -15,7 +15,11 @@ right_format = """$status$all$cmd_duration"""
 # vimmode    = "#8839ef"
 # vimmode    = "#fab387"
 vimmode    = "#eba0ac"
-time       = "#bac2de" # From capuuchin mocca muted color
+# time       = "#bac2de" # From capuuchin mocca muted color
+time       = "#eba0ac" # From capuuchin mocca muted color
+mauve      = "#cba6f7"
+maroon     = "#eba0ac"
+lavender   = "#b4befe"
 
 [character]
 success_symbol = "[❯](green)"
@@ -28,7 +32,7 @@ vicmd_symbol = "[](vimmode)"
 [git_branch]
 # format = '[$branch]($style) '
 format = '[ $branch]($style) '
-style = 'bold green'
+style = 'mauve' # Between mauve and lavender...
 
 [git_status]
 format = '$all_status$ahead_behind '

@@ -15,7 +15,8 @@ vim.opt.expandtab = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
--- vim.opt.shell = "/bin/zsh" # HAve not configured zsh in the container
+-- vim.opt.shell = "/bin/zsh" -- HAve not configured zsh in the container
+vim.opt.shell = "/bin/bash" -- usng bash as zsh not set up
 
 vim.opt.termguicolors = true
 

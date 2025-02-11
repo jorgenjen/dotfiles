@@ -30,13 +30,13 @@ return {
 				"clangd", -- C
 				--        "biome", -- JAvascript, json, typescript
 				-- "tsserver", -- Typesc, Javascript -- Seems to be deprecated
-				"ts_ls", -- typescript, javascript
-				"cssls", -- css
-				"html",
-				"pyright",
-				"emmet_ls",
-				"svelte",
-				"lua_ls", -- lua language server
+				-- "ts_ls", -- typescript, javascript
+				-- "cssls", -- css
+				-- "html",
+				-- "pyright",
+				-- "emmet_ls",
+				-- "svelte",
+				-- "lua_ls", -- lua language server
 
 				-- does not attach to java files for some reason
 				--        "jdtls", -- java
@@ -56,20 +56,21 @@ return {
 				ensure_installed = {
 					-- Formatters
 					"clang-format", -- c and cpp
-					"stylua", -- lua
-					"isort", -- python
-					"black", -- python
-					"prettierd", -- JS
-					"prettier", -- JS
+					-- "stylua", -- lua
+					-- "isort", -- python
+					-- "black", -- python
+					-- "prettierd", -- JS
+					-- "prettier", -- JS
 					"cmakelang", -- cmake
 
 					-- Linters
-					"eslint_d", -- JS
-					"pylint", -- python
+					-- "eslint_d", -- JS
+					-- "pylint", -- python
 					"cpplint", -- cpp and c static code analysis
 					-- "bacon", -- rust -- fails to install
 					"cmakelint", -- cmake
 					"shellcheck", -- bash
+					"bash-language-server", -- bash
 				},
 			}),
 			-- auto-install configured servers (with lspconfig)

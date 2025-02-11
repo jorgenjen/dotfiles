@@ -27,7 +27,7 @@ return {
 		mason_lspconfig.setup({
 			-- list of servers for mason to install
 			ensure_installed = {
-				"clangd", -- C
+				-- "clangd", -- C
 				--        "biome", -- JAvascript, json, typescript
 				-- "tsserver", -- Typesc, Javascript -- Seems to be deprecated
 				-- "ts_ls", -- typescript, javascript
@@ -55,22 +55,22 @@ return {
 			mason_tool_installer.setup({
 				ensure_installed = {
 					-- Formatters
-					"clang-format", -- c and cpp
+					-- "clang-format", -- c and cpp
 					-- "stylua", -- lua
 					-- "isort", -- python
 					-- "black", -- python
 					-- "prettierd", -- JS
 					-- "prettier", -- JS
-					"cmakelang", -- cmake
+					-- "cmakelang", -- cmake
 
 					-- Linters
 					-- "eslint_d", -- JS
 					-- "pylint", -- python
-					"cpplint", -- cpp and c static code analysis
+					-- "cpplint", -- cpp and c static code analysis
 					-- "bacon", -- rust -- fails to install
-					"cmakelint", -- cmake
-					"shellcheck", -- bash
-					"bash-language-server", -- bash
+					-- "cmakelint", -- cmake
+					-- "shellcheck", -- bash
+					-- "bash-language-server", -- bash
 				},
 			}),
 			-- auto-install configured servers (with lspconfig)

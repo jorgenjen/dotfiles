@@ -92,7 +92,7 @@
 		name = Jorgen Jensvold
 		email = jorgenjensvold@gmail.com
 		
-		[includeIf "worktree:~/personal/"]
+		[includeIf "gitdir:~/personal/"]
 			path = ~/.config/git/personal_config_github
 
 	'';
@@ -110,6 +110,7 @@
 		# You need to do ssh key gen with this location and add to ssh agent and add to github see my README.md under NixOS in the repo	
 		[core]
 		sshCommand = "ssh -i ~/.ssh/github_jorgenjen_sshkey"
+		editor = "nvim"
 	'';
   };
 

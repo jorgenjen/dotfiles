@@ -19,18 +19,34 @@
 			system = "x86_64-linux"; # one variable that is used to set system architecture
 			pkgs = nixpkgs.legacyPackages.${system};
 		in {
+			
+		# Add #sb2 to flake path to use that configuration eg: sudo nixos-rebuild switch --flake /flake/path#sb2
+		# This is how you choose configuration to build on different systems that you maintain
 		nixosConfigurations = {
 			# Can call this variable (configuration name) whatever you want (going with host name)
 			nixos = lib.nixosSystem {
 				inherit system; # same as having this (system = "x86_64-linux";) but now system is only set once
 				modules = [ ./configuration.nix ];
 			};
+			 
+			sb2 = lib.nixosSystem {
+				inherit system; # same as having this (system = "x86_64-linux";) but now system is only set once
+				modules = [ ./hosts/sb2/configuration.nix ];
+			};
 		};
+
+
 		homeConfigurations = {
 			# Name of your user is normal to use for home manager configuration
 			jorgen = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs; # Takes the varialbe from letbinding and passes it to function/configuration
 				modules = [ ./home-manager/home.nix ];
+			};
+
+			# Use by adding #jorgen@sb2 to the flake path eg: home-manager switch --flake /flake/path#jorgen@sb2
+			"jorgen@sb2" = home-manager.lib.homeManagerConfiguration {
+				inherit pkgs; # Takes the varialbe from letbinding and passes it to function/configuration
+				modules = [ ./hosts/sb2/home.nix ];
 			};
 		};	
 	};

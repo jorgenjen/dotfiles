@@ -1,5 +1,5 @@
 {
-	description = "My initial flake!";
+	description = "My modular multi host/system flake with my config files (with impureties of symlink out of nix store)";
 
 	# Inputs are mainly git repo's
 	inputs = {
@@ -10,9 +10,7 @@
 		home-manager.inputs.nixpkgs.follows = "nixpkgs"; # Ensures that they are the same to avoid issues
 	};
 
-	# Outputs describes the system and configuration of inputs I thinkn
-
-	# First {} is passing arguments into the outputs so that we can use the input nixpkgs for instance
+	# Different configurations both for nixos (configuration.nix) and home-manager (home.nix)
 	outputs = { self, nixpkgs, home-manager, ... }:
 		let 
 			lib = nixpkgs.lib; # Set variable that we can use in the output block which is after in
@@ -23,11 +21,8 @@
 		# Add #sb2 to flake path to use that configuration eg: sudo nixos-rebuild switch --flake /flake/path#sb2
 		# This is how you choose configuration to build on different systems that you maintain
 		nixosConfigurations = {
-			# Can call this variable (configuration name) whatever you want (going with host name)
-			nixos = lib.nixosSystem {
-				inherit system; # same as having this (system = "x86_64-linux";) but now system is only set once
-				modules = [ ./configuration.nix ];
-			};
+			# Choose config when doing sudo nixos-rebuild switch --flake /flake/path#VARIABLE
+			# 	Where VARIABLE is one of the varaibles below that represents a config (host) eg: sb2
 			 
 			sb2 = lib.nixosSystem {
 				inherit system; # same as having this (system = "x86_64-linux";) but now system is only set once
@@ -35,15 +30,10 @@
 			};
 		};
 
-
 		homeConfigurations = {
-			# Name of your user is normal to use for home manager configuration
-			jorgen = home-manager.lib.homeManagerConfiguration {
-				inherit pkgs; # Takes the varialbe from letbinding and passes it to function/configuration
-				modules = [ ./home-manager/home.nix ];
-			};
+			# Choose configuration when doing home-manager switch --flake /flake/path#VARIABLE
+			#	Where VARIABLE is the variable name of the configuration you want to use eg jorgen@sb2
 
-			# Use by adding #jorgen@sb2 to the flake path eg: home-manager switch --flake /flake/path#jorgen@sb2
 			"jorgen@sb2" = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs; # Takes the varialbe from letbinding and passes it to function/configuration
 				modules = [ ./hosts/sb2/home.nix ];

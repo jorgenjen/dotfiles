@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+	../../homeManagerModules/bash.nix
+	../../homeManagerModules/gitconfig.nix
+  ];
+
+  # Toggle on and off different parts of the imported files from my homeManagerModules
+  bash.enable = true; 
+  gitconfig.enable = true; 
+
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "jorgen";
@@ -71,48 +81,7 @@
     # EDITOR = "emacs";
   };
 
-  # simple bash config in home manager
-  # Could do same for zsh but more work considering I have already made dotfiles for zsh
-  # But I believe there is a way to use my dotfiles and use homemanger to symlink them and have it all in same repo
-  # It is not purist but simple and would work when cloning and using my dots repo
-  programs.bash = {
-	  enable = true; 
-	  shellAliases = {
-		  ll = "ls -l";
-		  ".." = "cd .."; 
-	  };
-  };
 
-  programs.git.enable = true;
- 
-  # User globla gitconfig file
-  home.file.".gitconfig" = {
- 	text = ''
-		[user]
-		name = Jorgen Jensvold
-		email = jorgenjensvold@gmail.com
-		
-		[includeIf "gitdir:~/personal/"]
-			path = ~/.config/git/personal_config_github
-
-	'';
-  };
-
-  home.file.".config/git/personal_config_github" = {
-	text = ''
-		[user]
-		name = Jorgen Jensvold
-		email = jorgenjensvold@gmail.com
-
-		[github]
-		user = jorgenjen
-
-		# You need to do ssh key gen with this location and add to ssh agent and add to github see my README.md under NixOS in the repo	
-		[core]
-		sshCommand = "ssh -i ~/.ssh/github_jorgenjen_sshkey"
-		editor = "nvim"
-	'';
-  };
 
   
   #programs.lazygit = {

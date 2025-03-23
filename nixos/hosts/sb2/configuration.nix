@@ -5,7 +5,11 @@
 
 { imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix ];
+      ./hardware-configuration.nix 
+
+	# My NixosModules that are toggelable most are set on by default but hust do moduleVarName.enable = false/true to disable/enable in this file
+ #	../../homeManagerModules/bash.nix
+   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true; boot.loader.efi.canTouchEfiVariables = true;

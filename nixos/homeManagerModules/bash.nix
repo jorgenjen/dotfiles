@@ -1,12 +1,14 @@
 
-{pkgs, lib, config, ...} : {
-
+{pkgs, lib, config, ...} : 
+let
+	moduleName = "bash";
+in
+{
 	options = {
-		bash.enable = lib.mkEnableOption "Enables bash config";
+		${moduleName}.enable = lib.mkEnableOption "Enables bash config";
 	};
 
-# Conditionally enables the module of the enable option is true and does not if false :D
-	config = lib.mkIf config.bash.enable {
+	config = lib.mkIf config.${moduleName}.enable {
 
 		# simple bash config in home manager
 		# Could do same for zsh but more work considering I have already made dotfiles for zsh
@@ -20,6 +22,4 @@
 			};
 		};
 	};
-
-
-			   }
+}

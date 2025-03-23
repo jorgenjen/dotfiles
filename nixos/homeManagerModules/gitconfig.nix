@@ -1,13 +1,16 @@
 
 
 
-{pkgs, lib, config, ...} : {
-
+{pkgs, lib, config, ...} : 
+let
+	moduleName = "gitconfig";
+in
+{
 	options = {
-		gitconfig.enable = lib.mkEnableOption "Enables bash config";
+		${moduleName}.enable = lib.mkEnableOption "Enables gitconfig with ssh key (see readme for manual step)";
 	};
 
-	config = lib.mkIf config.gitconfig.enable {
+	config = lib.mkIf config.${moduleName}.enable {
 		programs.git.enable = true;
 
 		# User globla gitconfig file
@@ -40,7 +43,6 @@
 				editor = "nvim"
 			'';
 		};
-
 	};
 }
 
